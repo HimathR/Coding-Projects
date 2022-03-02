@@ -1,0 +1,194 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.header{
+  position: fixed;
+  top: 2%;
+  font-size: 4vmin;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  align-items: center;
+  text-align: center;
+}
+a:link
+{
+  color: rgb(167, 186, 248)
+}
+
+.header:hover {
+  animation: bounce 1s ease infinite;
+  background-image: linear-gradient(to left, #09c6f9 0%, #045de9 74%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+/* Animations for the header title*/
+@keyframes bounce {
+  0%   { transform: scale(1,1)    translateY(0); }
+  10%  { transform: scale(1.1,.9) translateY(0); }
+  30%  { transform: scale(.9,1.1) translateY(-10px); }
+  50%  { transform: scale(1,1)    translateY(0); }
+  100% { transform: scale(1,1)    translateY(0); }
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.world {
+  overflow: hidden;
+  position: relative;
+}
+
+.score {
+  position: absolute;
+  font-size: 5vmin;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  right: 60vmin;
+  top: 1vmin;
+}
+
+.texthisco {
+  position: absolute;
+  font-size: 5vmin;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  right: 10vmin;
+  top: 1vmin;
+}
+
+.theme
+{ 
+  font-size: 3vmin;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  align-items: center;
+}
+
+.hiscore {
+  position: absolute;
+  font-size: 5vmin;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  right: 1vmin;
+  top: 1vmin;
+}
+
+.start-screen {
+  position: absolute;
+  font-size: 5vmin;
+  top: 50%;
+  left: 50%;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s;
+}
+.peace-out {
+  opacity: 0;
+}
+.hide {
+  transition: opacity 2s;
+  display: none;
+}
+
+.ground {
+  --left: 0;
+  position: absolute;
+  width: 300%;
+  bottom: 0;
+  left: calc(var(--left) * 1%);
+}
+
+.dino {
+  --bottom: 0;
+  position: absolute;
+  left: 1%;
+  height: 30%;
+  bottom: calc(var(--bottom) * 1%);
+  z-index: 100;
+}
+
+.obstacle {
+  position: absolute;
+  left: calc(var(--left) * 1%);
+  height: 30%;
+  bottom: 0;
+}
+
+
+input {
+  position: relative;
+  height: 40px;
+  padding: 0 10px;
+  border: 2px solid #000;
+  background: #e8e8e8;
+  user-select: none;
+  white-space: nowrap;
+  transition: all 0.05s linear;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 1000;
+  z-index: 90;
+  border-radius: 45px;
+}
+
+input:before,
+input:after {
+  content: "";
+  position: absolute;
+  background: #e8e8e8;
+  transition: all 0.2s linear;
+}
+
+input:before {
+  width: calc(100% + 6px);
+  height: calc(100% - 16px);
+  top: 8px;
+  left: -3px;
+}
+
+input:after {
+  width: calc(100% - 16px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: 8px;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+input:active {
+  transform: scale(0.95);
+}
+
+input:hover:before {
+  height: calc(100% - 32px);
+  top: 16px;
+}
+
+input:hover:after {
+  width: calc(100% - 32px);
+  left: 16px;
+}
+
+input span {
+  font-size: 25px;
+  z-index: 3;
+  position: relative;
+  font-weight: 600;
+}

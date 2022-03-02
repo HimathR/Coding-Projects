@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DinoGame</title>
+    <link rel="stylesheet" href="dinogame.css" />
+    <script src="dinogame.js" type="module"></script>
+  </head>
+  <div class="header">
+    <h1>DinoGame by Himath <a href="https://github.com/" target="_blank">[Click For Code]</a></h1>
+  </div>
+  <body div id="MyPage" data-body>
+    <div class="world" data-world>
+      <div class="hiscore" data-hiscore>Highest Score: 0</div>
+      <div class="score" data-score>0</div>
+      <div class="start-screen" data-start-screen>Press Anything To Start</div>
+      <img src="dinoimgs/ground.png" class="ground" data-ground />
+      <img src="dinoimgs/ground.png" class="ground" data-ground />
+      <img src="dinoimgs/dino-stationary.png" class="dino" data-dino />
+      <div class="theme">Themes:</div>
+      <input id="b1" onclick="basic()" type="button" value="🦕" disabled />
+      <input id="b2" onclick="deepsea()" type="button" value="🌊" />
+      <input id="b3" onclick="space()" type="button" value="👽" />
+
+      <script>
+        // for the buttons to change theme
+        function basic() {
+          document.getElementById("MyPage").style.backgroundColor = "white";
+          document.getElementById("MyPage").style.color = "black";
+          document.getElementById("MyPage").style.backgroundImage = "url('')";
+
+          document.getElementById("b1").disabled = true;
+          document.getElementById("b2").disabled = false;
+          document.getElementById("b3").disabled = false;
+        }
+        function deepsea() {
+          document.getElementById("MyPage").style.backgroundColor = "gray";
+          document.getElementById("MyPage").style.color = "white";
+          num = Math.floor(Math.random() * 2);
+          document.getElementById("MyPage").style.backgroundImage =
+            "url(dinoimgs/sea" + num + ".gif)";
+
+          document.getElementById("b2").disabled = true;
+          document.getElementById("b3").disabled = false;
+          document.getElementById("b1").disabled = false;
+        }
+        function space() {
+          document.getElementById("MyPage").style.backgroundColor = "black";
+          document.getElementById("MyPage").style.color = "white";
+          num = Math.floor(Math.random() * 2);
+          document.getElementById("MyPage").style.backgroundImage =
+            "url(dinoimgs/space" + num + ".gif)";
+
+          document.getElementById("b3").disabled = true;
+          document.getElementById("b2").disabled = false;
+          document.getElementById("b1").disabled = false;
+        }
+      </script>
+    </div>
+  </body>
+</html>
